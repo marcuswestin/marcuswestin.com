@@ -8,34 +8,23 @@ exports.bind = function(context, method/*, args... */) {
 }
 
 exports.Class = function(parent, proto) {
-	if(!parent) { throw new Error('parent or prototype not provided'); }
 	if(!proto) { proto = parent; }
-	else if(parent instanceof Array) { // multiple inheritance, use at your own risk =)
-		proto.prototype = {};
-		for(var i = 0, p; p = parent[i]; ++i) {
-			for(var item in p.prototype) {
-				if(!(item in proto.prototype)) {
-					proto.prototype[item] = p.prototype[item];
-				}
-			}
-		}
-		parent = parent[0]; 
-	} else { 
-		proto.prototype = parent.prototype;
-	}
-
+	proto.prototype = parent.prototype;
+	
 	var cls = function() { if(this.init) { this.init.apply(this, arguments); }}
 	cls.prototype = new proto(function(context, method, args) {
-		var args = args || [];
 		var target = parent;
 		while(target = target.prototype) {
 			if(target[method]) {
-				return target[method].apply(context, args);
+				return target[method].apply(context, args || []);
 			}
 		}
-		throw new Error('method ' + method + ' does not exist');
+		throw new Error('supr: parent method ' + method + ' does not exist');
 	});
 	cls.prototype.constructor = cls;
 	return cls;
 }
 
+exports.Singleton = function(parent, proto) {
+	return new exports.Class(parent, proto);
+}
