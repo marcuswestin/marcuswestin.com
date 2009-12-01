@@ -1,7 +1,8 @@
 module('from lib.javascript import Class');
+module('import class ui.Element');
 module('import lib.strings');
 
-exports.TabContainer = Class(function(){ 
+exports.TabContainer = Class(ui.Element, function(){ 
 	
 	this.init = function() {
 		this._tabs = [];
@@ -12,10 +13,9 @@ exports.TabContainer = Class(function(){
 	}
 	
 	this.addTab = function(text) {
-		this.create();
-		var tab = this._element.appendChild(document.createElement('a'));
-		a.href = '#' + text.replace(/\s/g, '-');
-		lib.strings.setText(a, text);
+		var tab = this.getElement().appendChild(document.createElement('a'));
+		tab.href = '#' + text.replace(/\s/g, '-');
+		lib.strings.setText(tab, text);
 	}
 })
 
