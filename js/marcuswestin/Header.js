@@ -1,8 +1,5 @@
 module('from lib.javascript import Class');
+module('import class ui.Header');
 
-exports.Header = Class(function(){
-
-	this.initialize = function() {
-		console.log('marcuswestin.com header init');
-	}
+exports.Header = Class(ui.Header, function(supr){
 })

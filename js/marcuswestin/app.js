@@ -10,7 +10,9 @@ module.path.unshift('js');
 	var tabContainer = new marcuswestin.TabContainer();
 	
 	tabContainer.addTab('Latest');
+	tabContainer.addTab('Projects');
 	
-	//body.appendChild(header.getElement());
+	body.appendChild(header.getElement());
+	body.appendChild(tabContainer.getElement());
 })();
 

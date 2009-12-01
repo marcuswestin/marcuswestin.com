@@ -1,15 +1,28 @@
 module('from lib.javascript import Class');
-module('import lib.Publisher');
+module('import class lib.Publisher');
+module('import lib.css');
 
-exports.Element = Class(lib.Publisher, function() {
+exports.Element = Class(lib.Publisher, function(supr) {
+	
+	this.init = function() {
+		console.log('ui.Element init');
+		supr(this, 'init');
+	}
 	
 	this.getElement = function() {
 		if (!this._element) { 
-			this._createElement(); 
+			this._element = document.createElement('div');
 			this.createContent();
 		}
 		return this._element;
 	}
 	
-	this.createContent = funtion() { throw "Abstract method"; }
+	this.createContent = function() { 
+		throw "ui.Element: abstract method createContent called"; 
+	}
+
+	this.loadStyles = function(componentName) {
+		lib.css.addClassName(this._element, componentName.split('.').join('-'));
+		lib.css.loadStyle(componentName.split('.').join('/'));
+	}
 })

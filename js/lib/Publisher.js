@@ -2,7 +2,7 @@ module('from lib.javascript import Class');
 
 exports.Publisher = Class(function() {
 	
-	this.initialize = function() {
+	this.init = function() {
 		this._subscribers = {};
 	}
 	
