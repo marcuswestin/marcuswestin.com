@@ -22,7 +22,7 @@ exports.Element = Class(lib.Publisher, function(supr) {
 	}
 
 	this.loadStyles = function(componentName) {
-		lib.css.addClassName(this._element, componentName.split('.').join('-'));
-		lib.css.loadStyle(componentName.split('.').join('/'));
+		lib.css.addClassName(this._element, componentName);
+		lib.css.loadStyle(componentName.split('-').join('/'));
 	}
 })
