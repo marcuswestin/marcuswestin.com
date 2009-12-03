@@ -17,12 +17,12 @@ a:focus {
 	width: 100%;
 	position: absolute;
 	height: 40px;
-	background: url("/img/app/top.png") repeat-x;
+	background: url("/img/app/top.png") repeat-x 0 1px;
 }
 
 #marginLeft {
 	height: 100%;
-	margin-left: 81px;
+	margin-left: 80px;
 	background: url("/img/app/left.png") repeat-y;
 }
 
