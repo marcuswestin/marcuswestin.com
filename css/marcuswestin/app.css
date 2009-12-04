@@ -8,49 +8,9 @@ body {
 
 a {
 	text-decoration: none;
+	color: #a2a2a2;
 }
 a:focus {
 	outline: none;
 }
 
-#marginTop {
-	width: 100%;
-	position: absolute;
-	height: 40px;
-	background: url("/img/app/top.png") repeat-x 0 1px;
-}
-
-#marginLeft {
-	height: 100%;
-	margin-left: 80px;
-	background: url("/img/app/left.png") repeat-y;
-}
-
-#logo {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	height: 149px;
-	width: 240px;
-	background: white url("/img/app/logo.png") no-repeat scroll right bottom;
-}
-
-#content {
-	padding-top: 40px;
-}
-
-#header {
-	margin-left: 160px
-}
-
-#slogan {
-	font-size: 16px;
-	margin: 10px 0 20px;
-	position: absolute;
-	top: 40px;
-	right: 10px;
-}
-
-#header .ui-TabContainer {
-	margin: 47px 0 0 30px;
-}
