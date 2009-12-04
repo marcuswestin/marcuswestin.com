@@ -16,10 +16,8 @@ exports.Element = Class(lib.Publisher, function(supr) {
 		}
 		return this._element;
 	}
-	
-	this.createContent = function() { 
-		throw "ui.Element: abstract method createContent called"; 
-	}
+
+	this.createContent = function() {} // abstract method
 
 	this.loadStyles = function(componentName) {
 		lib.css.addClassName(this._element, componentName);
