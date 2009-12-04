@@ -13,7 +13,7 @@ exports.Publisher = Class(function() {
 
 	this.publish = function(signal) {
 		var args = Array.prototype.slice.call(arguments, 1);
-		for (var i=0, callback; callback = this._subscribers[signal]; i++) {
+		for (var i=0, callback; callback = this._subscribers[signal][i]; i++) {
 			callback.apply(this, args);
 		}
 	}
