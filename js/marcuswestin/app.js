@@ -6,20 +6,18 @@ module.path.unshift('js');
 	module('import class lib.navigationManager');
 	module('import class marcuswestin.views.factory');
 	
-	var body = document.body;
-	
-	var tabContainer = new ui.TabContainer();
-	
 	var layout = new marcuswestin.Layout();
-	body.appendChild(layout.getElement());
-	
+	var tabContainer = new ui.TabContainer();
+
+	document.body.appendChild(layout.getElement());
 	layout.getHeader().appendChild(tabContainer.getElement());
 
 	tabContainer.addTab('Latest');
+	tabContainer.addTab('Blog');
+	tabContainer.addTab('Twitter');
 	tabContainer.addTab('Projects');
-	tabContainer.addTab('Bio');
-	tabContainer.addTab('Resume');
-	
+	tabContainer.addTab('Bio & Resume');
+
 	lib.navigationManager.subscribe('Navigate', function(destination, items){
 		var content = layout.getContent();
 		content.innerHTML = '';
