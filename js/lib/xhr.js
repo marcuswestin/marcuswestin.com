@@ -15,9 +15,9 @@ exports.get = function(url, callback) {
 
 exports.getJSON = function(url, callback) {
 	exports.get(url, function(responseText) {
-		try { 
-			var data = eval('(' + responseText + ')'); 
-		} catch(e) { 
+		try {
+			var data = eval('(' + responseText + ')');
+		} catch(e) {
 			console.log('json eval error', e);
 			return callback();
 		}
