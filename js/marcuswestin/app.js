@@ -6,7 +6,6 @@ module.path.unshift('js');
 	module('import class lib.navigationManager');
 	module('import class marcuswestin.views.factory');
 	
-	console.log(lib.navigationManager);
 	var body = document.body;
 	
 	var tabContainer = new ui.TabContainer();
