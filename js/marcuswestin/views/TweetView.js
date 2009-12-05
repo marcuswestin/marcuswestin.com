@@ -16,9 +16,8 @@ exports.TweetView = Class(View, function(supr) {
 		
 		var tweet = this._tweet;
 		var img = dom.create({ className: 'profileImage', parent: this._element,
-				type: 'img', src: tweet.profile_image_url });
+				type: 'img', src: tweet.profile_image_url || 'http://a3.twimg.com/profile_images/379382059/n2904387_30962178_8468_normal.jpg' });
 		dom.create({ className: 'tweet', parent: this._element, text: tweet.text });
-		
 	}
 	
 })
