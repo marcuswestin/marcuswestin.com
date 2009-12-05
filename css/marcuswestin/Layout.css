@@ -9,7 +9,7 @@
 }
 
 .marcuswestin-Layout .marginLeft {
-	min-height: 100%;
+	height: 100%;
 	margin-left: 80px;
 	padding-left: 60px;
 	background: url("/img/app/left.png") repeat-y;
