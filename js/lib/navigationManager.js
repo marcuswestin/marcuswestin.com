@@ -16,7 +16,23 @@ exports.navigationManager = Singleton(lib.Publisher, function(supr) {
 	
 	this.navigateTo = function(location) {
 		this._lastLocation = location;
-		var destination = 'navigate.php?path=' + location.substr(1);
-		xhr.getJSON(destination, bind(this, 'publish', 'Navigate', destination));
+		var destination = location.substr(1);
+		
+		var pending = 1;
+		
+		var results = [];
+		var onResponse = bind(this, function(items) {
+			results.concat(items);
+			if (!--pending) { this.publish('Navigate', location.substr(1), results); }
+		});
+		
+		if (destination == 'Latest' || destination == 'Twitter') {
+			pending += 2;
+			function onTweets(response) { onResponse(response.results); }
+			twitter.getMentions('marcuswestin', onTweets);
+			twitter.getTimeline('marcuswestin', onTweets);
+		}
+		
+		xhr.getJSON('navigate.php?path=' + destination, onResponse);
 	}
 })
