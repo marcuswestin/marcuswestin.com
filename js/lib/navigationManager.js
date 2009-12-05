@@ -1,4 +1,4 @@
-module('from lib.javascript import Singleton, bind');
+module('from lib.javascript import Singleton, bind, map');
 module('import class lib.Publisher');
 module('import lib.xhr as xhr');
 module('external lib.twitter import twitter');
@@ -26,15 +26,26 @@ exports.navigationManager = Singleton(lib.Publisher, function(supr) {
 		
 		var results = [];
 		var onResponse = bind(this, function(items) {
-			results.concat(items);
-			if (!--pending) { this.publish('Navigate', location.substr(1), results); }
+			results = results.concat(items);
+			if (!--pending) {  this.publish('Navigate', location.substr(1), results); }
 		});
 		
 		if (destination == 'Latest' || destination == 'Twitter') {
-			pending += 2;
-			function onTweets(response) { onResponse(response.results); }
-			twitter.getMentions('marcuswestin', onTweets);
-			twitter.getTimeline('marcuswestin', onTweets);
+			function onTweets(response) { 
+				var result = [];
+				for (var i=0, tweet; tweet = response.results[i]; i++) { 
+					result.push({ type: 'Tweet', data: tweet });
+				}
+				onResponse(result); 
+			}
+			pending++;
+			twitter.getMentions('marcuswestin', function(response) {
+				onResponse(map(response.results, function(tweet){ return { type: 'Tweet', data: tweet }; }));
+			});
+			pending++;
+			twitter.getTimeline('marcuswestin', function(tweets){
+				onResponse(map(tweets, function(tweet){ return { type: 'Tweet', data: tweet }; }));
+			});
 		}
 		
 		xhr.getJSON('navigate.php?path=' + destination, onResponse);

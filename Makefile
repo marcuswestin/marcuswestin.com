@@ -1,7 +1,7 @@
-.PHONY: alderaan clean-alderaan module clean-module xhr clean-xhr
+.PHONY: alderaan module QEvent
 
-all: module xhr
-clean: clean-module clean-alderaan clean-xhr
+all: module QEvent
+clean: clean-module clean-alderaan clean-xhr clean-QEvent
 	rm -f *~
 
 alderaan:
@@ -14,20 +14,13 @@ clean-alderaan:
 	rm -f command.history
 	rm -f plugins.json
 
-module:
+module: js/module.js
 	curl http://github.com/marcuswestin/module-js/raw/4c7108eabb0d46fe4ed2b2cb8b05a1a58ad847d5/module.js > js/module.js
 clean-module:
 	rm -f js/module.js
 
-xhr: xhr-dev
-	rm XMLHttpRequest.src.js
-xhr-dev:
-	curl http://xmlhttprequest.googlecode.com/files/XMLHttpRequest.1.0.3.zip > XMLHttpRequest.zip
-	unzip XMLHttpRequest.zip
-	rm COPYING.LESSER
-	rm XMLHttpRequest.zip
-	mv XMLHttpRequest.js js
-clean-xhr:
-	rm -f js/XMLHttpRequest.src.js
-	rm -f js/XMLHttpRequest.js
+QEvent: js/lib/QEvent.js
+	curl http://qevent.googlecode.com/svn/trunk/Source/QEvent.js > js/lib/QEvent.js
+clean-QEvent:
+	rm -f js/lib/QEvent.js
 

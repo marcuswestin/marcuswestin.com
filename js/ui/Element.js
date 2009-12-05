@@ -22,4 +22,12 @@ exports.Element = Class(lib.Publisher, function(supr) {
 		lib.css.addClassName(this._element, componentName);
 		lib.css.loadStyle(componentName.split('-').join('/'));
 	}
+
+	this.addClassName = function(className) {
+		lib.css.addClassName(this._element, className);
+	}
+	
+	this.removeClassName = function(className) {
+		lib.css.removeClassName(this._element, className);
+	}
 })

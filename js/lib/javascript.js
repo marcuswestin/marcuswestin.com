@@ -7,6 +7,14 @@ exports.bind = function(context, method/*, args... */) {
 	}
 }
 
+exports.map = function(items, fn) {
+	var results = [];
+	for (var i=0, item; item = items[i]; i++) {
+		results.push(fn(item));
+	}
+	return results;
+}
+
 exports.Class = function(parent, proto) {
 	if(!proto) { proto = parent; }
 	proto.prototype = parent.prototype;

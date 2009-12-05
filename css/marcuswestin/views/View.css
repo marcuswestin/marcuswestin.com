@@ -6,3 +6,8 @@
 	-webkit-border-radius: 8px;
 	margin: 0 40px 10px 0;
 }
+
+.marcuswestin-views-View-hot {
+	background-color: #eaeaf6;
+	cursor: pointer; 
+}
