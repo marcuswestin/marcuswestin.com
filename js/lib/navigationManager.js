@@ -1,8 +1,8 @@
-module('from lib.javascript import Class, bind');
+module('from lib.javascript import Singleton, bind');
 module('import class lib.Publisher');
 module('import lib.xhr as xhr');
 
-exports.HistoryManager = Class(lib.Publisher, function(supr) {
+exports.navigationManager = Singleton(lib.Publisher, function(supr) {
 	
 	this.init = function() {
 		supr(this, 'init');
@@ -16,7 +16,7 @@ exports.HistoryManager = Class(lib.Publisher, function(supr) {
 	
 	this.navigateTo = function(location) {
 		this._lastLocation = location;
-		var destination = location.substr(1);
-		xhr.get(destination + '/', bind(this, 'publish', 'Navigate', destination));
+		var destination = 'navigate.php?path=' + location.substr(1);
+		xhr.getJSON(destination, bind(this, 'publish', 'Navigate', destination));
 	}
 })

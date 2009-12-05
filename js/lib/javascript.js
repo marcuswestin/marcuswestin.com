@@ -26,5 +26,5 @@ exports.Class = function(parent, proto) {
 }
 
 exports.Singleton = function(parent, proto) {
-	return new exports.Class(parent, proto);
+	return new (exports.Class(parent, proto))();
 }

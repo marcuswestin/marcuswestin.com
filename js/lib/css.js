@@ -9,6 +9,6 @@ exports.loadStyle = function(path) {
 	var link = document.createElement('link');
 	link.rel = 'stylesheet';
 	link.type = 'text/css';
-	link.href = base + path;
+	link.href = base + path + '.css';
 	document.getElementsByTagName('head')[0].appendChild(link);
 }

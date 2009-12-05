@@ -5,7 +5,6 @@ module('import lib.css');
 exports.Element = Class(lib.Publisher, function(supr) {
 	
 	this.init = function() {
-		console.log('ui.Element init');
 		supr(this, 'init');
 	}
 	
