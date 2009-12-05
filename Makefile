@@ -2,6 +2,7 @@
 
 all: module xhr
 clean: clean-module clean-alderaan clean-xhr
+	rm -f *~
 
 alderaan:
 	git clone --depth 1 git://github.com/marcuswestin/alderaan.git alderaan
@@ -10,6 +11,8 @@ alderaan:
 	mv util.php.inc.tmp alderaan/cmd/php/util.php.inc
 clean-alderaan:
 	rm -rf alderaan
+	rm -f command.history
+	rm -f plugins.json
 
 module:
 	curl http://github.com/marcuswestin/module-js/raw/4c7108eabb0d46fe4ed2b2cb8b05a1a58ad847d5/module.js > js/module.js
