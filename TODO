@@ -1,0 +1,14 @@
+P1
+* Create blog directory and view
+* Create twitter view
+* Create projects directory and views
+	- Preview view: Should probably look different. 3 per row squares, with title, video, description?
+	- Full view: Lightbox? Or full page view?
+
+P2
+* Fetch and store data for
+	- youtube
+	- github
+	- twitter
+	- photos?
+
