@@ -2,13 +2,13 @@
 
 }
 
-.marcuswestin-Layout .marginTop {
+.marcuswestin-Layout .top .border {
 	width: 100%;
 	height: 40px;
-	background: url("/img/app/top.png") repeat-x 0 1px;
+	background: white url("/img/app/top.png") repeat-x 0 1px;
 }
 
-.marcuswestin-Layout .marginLeft {
+.marcuswestin-Layout .margin {
 	position: absolute;
 	top: 0px;
 	/* Height set in JS */
@@ -27,12 +27,13 @@
 }
 
 .marcuswestin-Layout .content {
-	padding-top: 40px;
+	padding: 160px 0 10px 162px;
 }
 
 .marcuswestin-Layout .header {
 	height: 110px;
-	margin: 40px 0 0 110px;
+	margin: 0 0 0 235px;
+	background-color: white;
 }
 
 .marcuswestin-Layout .slogan {

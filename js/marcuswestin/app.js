@@ -12,9 +12,10 @@ module.path.unshift('js');
 	document.body.appendChild(layout.getElement());
 	layout.getHeader().appendChild(tabContainer.getElement());
 
-	tabContainer.addTab('Latest');
+	tabContainer.addTab('All');
 	tabContainer.addTab('Blog');
 	tabContainer.addTab('Twitter');
+	tabContainer.addTab('Youtube');
 	tabContainer.addTab('Projects');
 	tabContainer.addTab('Bio & Resume');
 

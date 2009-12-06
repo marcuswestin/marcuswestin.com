@@ -1,7 +1,7 @@
-.PHONY: alderaan module QEvent
+.PHONY: alderaan module twitter
 
-all: module QEvent
-clean: clean-module clean-alderaan clean-xhr clean-QEvent
+all: module twitter
+clean: clean-module clean-twitter clean-alderaan
 	rm -f *~
 
 alderaan:
@@ -14,14 +14,12 @@ clean-alderaan:
 	rm -f command.history
 	rm -f plugins.json
 
-module: js/module.js
-	curl http://github.com/marcuswestin/module-js/raw/4c7108eabb0d46fe4ed2b2cb8b05a1a58ad847d5/module.js > js/module.js
+module:
+	curl http://github.com/marcuswestin/module.js/raw/4c7108eabb0d46fe4ed2b2cb8b05a1a58ad847d5/module.js > js/module.js
 clean-module:
 	rm -f js/module.js
 
-QEvent: js/lib/QEvent.js
-	curl http://qevent.googlecode.com/svn/trunk/Source/QEvent.js > js/lib/events.js
-	echo "\nwindow.events = QEvent" >> js/lib/events.js
-clean-QEvent:
-	rm -f js/lib/QEvent.js
-
+twitter:
+	curl http://github.com/marcuswestin/twitter.js/raw/163022a90bd9b7ae1ec20e840da6e54e82e023a8/twitter.js > js/lib/twitter.js
+clean-twitter:
+	rm -f js/lib/twitter.js

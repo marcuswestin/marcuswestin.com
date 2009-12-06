@@ -9,24 +9,28 @@ exports.Layout = Class(ui.Element, function(supr) {
 	this.createContent = function() {
 		this.loadStyles('marcuswestin-Layout');
 		
-		dom.create({ parent: this._element, className: 'marginTop' });
-		this._marginLeft = dom.create({ parent: this._element, className: 'marginLeft' });
-		dom.create({ parent: this._element, className: 'logo' });
-		
-		this._header = dom.create({ parent: this._marginLeft, className: 'header' });
-		this._content = dom.create({ parent: this._marginLeft, className: 'content' });
-		
-		dom.create({ parent: this._header, className: 'slogan', html: 'marcus westin' });
-		
+		// Three sibling DOM structures:
+		// a border on the left. Fixed width. Resizes height to viewport. Fixed position
+		this._margin = dom.create({ parent: this._element, className: 'margin', style: { position: 'fixed' } });
+		// a border on top and navigation elements. Fixed height. 100% width. Fixed position
+		this._header = this.createHeader(); 
+		// offset left and top by the margin and top. Height resizes with content
+		this._content = dom.create({ parent: this._element, className: 'content' }); 
+
 		events.add(window, 'resize', bind(this, 'onResize'));
 		this.onResize();
 	}
 	
+	this.createHeader = function() {
+		var top = dom.create({ parent: this._element, className: 'top', style: { position: 'fixed', width: '100%' } });
+		var borderTop = dom.create({ parent: top, className: 'border' });
+		var logo = dom.create({ parent: top, className: 'logo' });
+		var slogan = dom.create({ parent: top, className: 'slogan', html: 'marcus westin' });
+		return dom.create({ parent: top, className: 'header' });
+	}
+	
 	this.onResize = function() {
-		var windowSize = dimensions.getSize(window);
-		var contentSize = dimensions.getSize(this._content);
-		var contentPos = dimensions.getPosition(this._content);
-		this._marginLeft.style.height = Math.max(windowSize.height, contentSize.height + contentPos.top) + 'px';
+		this._margin.style.height = dimensions.getSize(window).height + 'px';
 	}
 	
 	this.getContent = function() { return this._content; }
