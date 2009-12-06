@@ -14,6 +14,7 @@ module.path.unshift('js');
 
 	tabContainer.addTab('All');
 	tabContainer.addTab('Blog');
+	tabContainer.addTab('Github');
 	tabContainer.addTab('Twitter');
 	tabContainer.addTab('Youtube');
 	tabContainer.addTab('Projects');
