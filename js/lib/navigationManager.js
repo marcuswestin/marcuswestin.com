@@ -30,7 +30,7 @@ exports.navigationManager = Singleton(lib.Publisher, function(supr) {
 			if (!--pending) {  this.publish('Navigate', location.substr(1), results); }
 		});
 		
-		if (destination == 'Latest' || destination == 'Twitter') {
+		if (destination == 'All' || destination == 'Twitter') {
 			function onTweets(response) { 
 				var result = [];
 				for (var i=0, tweet; tweet = response.results[i]; i++) { 
