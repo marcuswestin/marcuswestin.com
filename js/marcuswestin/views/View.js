@@ -1,8 +1,7 @@
 module('from lib.javascript import Class, bind');
 module('import class ui.Element');
-module('external lib.QEvent import QEvent'); // as events
+module('from lib.events import events');
 module('import lib.css');
-
 
 exports.View = Class(ui.Element, function(supr) {
 	

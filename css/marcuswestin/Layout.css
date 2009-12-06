@@ -9,7 +9,9 @@
 }
 
 .marcuswestin-Layout .marginLeft {
-	height: 100%;
+	position: absolute;
+	top: 0px;
+	/* Height set in JS */
 	margin-left: 80px;
 	padding-left: 60px;
 	background: url("/img/app/left.png") repeat-y;
@@ -30,7 +32,7 @@
 
 .marcuswestin-Layout .header {
 	height: 110px;
-	margin-left: 110px
+	margin: 40px 0 0 110px;
 }
 
 .marcuswestin-Layout .slogan {

@@ -20,7 +20,8 @@ clean-module:
 	rm -f js/module.js
 
 QEvent: js/lib/QEvent.js
-	curl http://qevent.googlecode.com/svn/trunk/Source/QEvent.js > js/lib/QEvent.js
+	curl http://qevent.googlecode.com/svn/trunk/Source/QEvent.js > js/lib/events.js
+	echo "\nwindow.events = QEvent" >> js/lib/events.js
 clean-QEvent:
 	rm -f js/lib/QEvent.js
 

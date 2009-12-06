@@ -26,6 +26,7 @@ module.path.unshift('js');
 			var view = marcuswestin.views.factory.getView(item);
 			content.appendChild(view.getElement());
 		}
+		layout.onResize();
 	});
 })();
 
