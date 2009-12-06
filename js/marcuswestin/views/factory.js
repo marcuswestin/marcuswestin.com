@@ -10,7 +10,6 @@ exports.factory = Singleton(function() {
 	}
 	
 	this.getView = function(item) {
-		console.log('getView', item);
 		return new this._viewConstructors[item.type](this, item.data);
 	}
 });
