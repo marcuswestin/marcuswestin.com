@@ -20,6 +20,8 @@ clean-module:
 	rm -f js/module.js
 
 twitter:
-	curl http://github.com/marcuswestin/twitter.js/raw/163022a90bd9b7ae1ec20e840da6e54e82e023a8/twitter.js > js/lib/twitter.js
+	mkdir js/lib/twitter
+	curl http://github.com/marcuswestin/twitter.js/raw/9437bb7eda5f0fff8a117a12b171813f8a092673/twitter/twitter.js > js/lib/twitter/twitter.js
+	curl http://github.com/marcuswestin/twitter.js/raw/9437bb7eda5f0fff8a117a12b171813f8a092673/twitter/node.js > js/lib/twitter/node.js
 clean-twitter:
-	rm -f js/lib/twitter.js
+	rm -rf js/lib/twitter
