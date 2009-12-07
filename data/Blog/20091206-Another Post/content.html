@@ -1,0 +1,38 @@
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nunc lectus, iaculis sit amet imperdiet pharetra, interdum et metus. Aenean varius bibendum dictum. Curabitur ligula justo, aliquam a interdum porta, aliquam non erat. In rutrum dolor et tortor eleifend sit amet posuere orci venenatis. Quisque risus lorem, consectetur nec rutrum convallis, placerat eu lacus. Donec non semper erat. Pellentesque aliquet dapibus consequat. Pellentesque aliquam, tortor gravida mollis interdum, justo odio ultricies purus, quis fermentum mauris erat vel quam. Suspendisse varius iaculis erat, at rutrum arcu vestibulum vitae. Aenean aliquam neque sed lectus pellentesque dignissim. Mauris et lorem nisl. Nunc tincidunt dui in arcu eleifend consequat. Nulla varius ultricies metus, dictum faucibus ante sagittis at. Nam commodo malesuada orci a aliquet. Cras vel lectus leo, id pulvinar risus.
+
+<code class="javascript">
+(function(){
+  module('import class ui.TabContainer');
+  module('import class marcuswestin.Layout');
+  module('import class lib.navigationManager');
+  module('import class marcuswestin.views.factory');
+  
+  var layout = new marcuswestin.Layout();
+  var tabContainer = new ui.TabContainer();
+
+  document.body.appendChild(layout.getElement());
+  layout.getHeader().appendChild(tabContainer.getElement());
+
+  tabContainer.addTab('All');
+  tabContainer.addTab('Blog');
+  tabContainer.addTab('Github');
+  tabContainer.addTab('Twitter');
+  tabContainer.addTab('Youtube');
+  tabContainer.addTab('Projects');
+  tabContainer.addTab('Bio & Resume');
+
+  lib.navigationManager.subscribe('Navigate', function(destination, items){
+  var content = layout.getContent();
+  content.innerHTML = '';
+  
+  for (var i=0, item; item = items[i]; i++) {
+  var view = marcuswestin.views.factory.getView(item);
+  content.appendChild(view.getElement());
+  }
+  layout.onResize();
+  });
+})();
+</code>
+
+
+<p>Sed id nisl quis diam venenatis cursus. Fusce quis pretium lacus. Donec nec augue eu risus dapibus lobortis. Aenean eget nulla sit amet quam rhoncus convallis ut eu erat. Aenean at lacus diam, eu tincidunt libero. Fusce tincidunt sem sed ipsum tincidunt quis volutpat mauris vestibulum. Etiam ornare, nisl nec sodales cursus, mi metus consectetur orci, tincidunt porttitor ipsum lectus non nisi. Integer sagittis consectetur lorem. Sed nec mauris mauris, vel vulputate ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent volutpat, purus scelerisque fringilla dictum, quam diam interdum enim, eget volutpat ipsum tortor vel velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi et bibendum est. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent vestibulum varius varius. Vivamus dapibus euismod semper. 
