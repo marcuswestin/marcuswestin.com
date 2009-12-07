@@ -1,9 +1,9 @@
-module('from lib.javascript import Class, bind');
-module('import class ui.Element');
-module('from lib.events import events');
-module('import lib.css');
+jsio('from lib.javascript import Class, bind');
+jsio('import ui.Element');
+jsio('import lib.events as events');
+jsio('import lib.css');
 
-exports.View = Class(ui.Element, function(supr) {
+exports = Class(ui.Element, function(supr) {
 	
 	this.createContent = function() {
 		this.loadStyles('marcuswestin-views-View');

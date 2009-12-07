@@ -1,8 +1,8 @@
-module('from lib.javascript import Singleton');
-module('import class .BlogPostExcerptView');
-module('import class .TweetView');
+jsio('from lib.javascript import Singleton');
+jsio('import .BlogPostExcerptView');
+jsio('import .TweetView');
 
-exports.factory = Singleton(function() {
+exports = Singleton(function() {
 	
 	this._viewConstructors = {
 		'BlogPostExcerpt': BlogPostExcerptView,

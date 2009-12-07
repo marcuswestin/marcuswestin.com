@@ -1,5 +1,5 @@
-module('from lib.javascript import Class');
-module('import class ui.Element');
+jsio('from lib.javascript import Class');
+jsio('import class ui.Element');
 
 exports.BioView = Class(ui.Element, function(supr) {
 	

@@ -1,6 +1,6 @@
-module('from lib.javascript import Class');
+jsio('from lib.javascript import Class');
 
-exports.Publisher = Class(function() {
+exports = Class(function() {
 	
 	this.init = function() {
 		this._subscribers = {};

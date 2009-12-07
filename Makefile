@@ -1,7 +1,7 @@
-.PHONY: alderaan module twitter
+.PHONY: alderaan jsio twitter
 
-all: module twitter
-clean: clean-module clean-twitter clean-alderaan
+all: jsio twitter
+clean: clean-jsio clean-twitter clean-alderaan
 	rm -f *~
 
 alderaan:
@@ -14,10 +14,10 @@ clean-alderaan:
 	rm -f command.history
 	rm -f plugins.json
 
-module:
-	curl http://github.com/marcuswestin/module.js/raw/4c7108eabb0d46fe4ed2b2cb8b05a1a58ad847d5/module.js > js/module.js
-clean-module:
-	rm -f js/module.js
+jsio:
+	curl http://github.com/mcarter/js.io/raw/d44eb1f2972cd64c7382ca327ee87a1366e4df6b/packages/PKG.js | sed s_PKG_jsio_g > js/jsio.js
+clean-jsio:
+	rm -f js/jsio.js
 
 twitter:
 	mkdir js/lib/twitter

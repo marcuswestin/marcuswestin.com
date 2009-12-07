@@ -1,10 +1,10 @@
-module('from lib.javascript import Class, bind');
-module('import class ui.Element');
-module('import lib.dom as dom')
-module('import lib.dimensions as dimensions')
-module('from lib.events import events')
+jsio('from lib.javascript import Class, bind');
+jsio('import ui.Element');
+jsio('import lib.dom as dom')
+jsio('import lib.dimensions as dimensions')
+jsio('import lib.events as events')
 
-exports.Layout = Class(ui.Element, function(supr) {
+exports = Class(ui.Element, function(supr) {
 	
 	this.createContent = function() {
 		this.loadStyles('marcuswestin-Layout');

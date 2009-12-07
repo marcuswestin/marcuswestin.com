@@ -1,9 +1,8 @@
-module('from lib.javascript import Class');
-module('import class .View');
-module('import lib.dom as dom');
+jsio('from lib.javascript import Class');
+jsio('import .View');
+jsio('import lib.dom as dom');
 
-exports.TweetView = Class(View, function(supr) {
-	
+exports = Class(View, function(supr) {
 	
 	this.init = function(factory, data) {
 		supr(this, 'init', arguments);

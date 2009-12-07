@@ -1,4 +1,5 @@
-var events = exports.events = {}
+var events = {}
+if (typeof exports != 'undefined') { exports = events };
 
 ;(function() {
 	events.add = function(element, eventName, handler, dontIncludeEvent) {

@@ -1,8 +1,8 @@
-module('from lib.javascript import Class');
-module('import class lib.Publisher');
-module('import lib.css');
+jsio('from lib.javascript import Class');
+jsio('import lib.Publisher');
+jsio('import lib.css');
 
-exports.Element = Class(lib.Publisher, function(supr) {
+exports = Class(lib.Publisher, function(supr) {
 	
 	this.init = function() {
 		supr(this, 'init');

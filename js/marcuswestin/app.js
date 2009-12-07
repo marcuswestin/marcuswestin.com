@@ -1,10 +1,10 @@
-module.path.unshift('js');
+jsio.setPath('js');
 
 (function(){
-	module('import class ui.TabContainer');
-	module('import class marcuswestin.Layout');
-	module('import class lib.navigationManager');
-	module('import class marcuswestin.views.factory');
+	jsio('import ui.TabContainer');
+	jsio('import marcuswestin.Layout');
+	jsio('import lib.navigationManager');
+	jsio('import marcuswestin.views.factory');
 	
 	var layout = new marcuswestin.Layout();
 	var tabContainer = new ui.TabContainer();

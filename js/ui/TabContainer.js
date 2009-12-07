@@ -1,9 +1,9 @@
-module('from lib.javascript import Class');
-module('import class ui.Element');
-module('import lib.strings');
-module('import lib.css');
+jsio('from lib.javascript import Class');
+jsio('import ui.Element');
+jsio('import lib.strings');
+jsio('import lib.css');
 
-exports.TabContainer = Class(ui.Element, function(){ 
+exports = Class(ui.Element, function(){ 
 	
 	this.init = function() {
 		this._tabs = [];
